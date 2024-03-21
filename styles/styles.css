@@ -7,3 +7,38 @@ canvas {
     display: block;
     border: 1px solid #000;
 }
+
+#colorPickerTab, #lineSizeTab, #buttonContainer {
+    position: fixed;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#colorPickerTab {
+    top: 20px;
+    left: 20px;
+}
+
+#lineSizeTab {
+    top: 20px;
+    right: 150px;
+}
+
+#buttonContainer {
+    top: 20px;
+    right: 20px;
+}
+
+#lineSizeInput, #resetButton {
+    margin-right: 10px;
+}
+
+#instructionText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}

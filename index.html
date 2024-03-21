@@ -12,6 +12,20 @@
 
   </head>
   <body>
-    <canvas id="myCanvas"></canvas>
-  </body>
+
+<div id="colorPickerTab">
+    <label for="colorPicker">Select color:</label>
+    <input type="color" id="colorPicker" value="#000000">
+</div>
+<div id="lineSizeTab">
+    <label for="lineSizeInput">Line size:</label>
+    <input type="number" id="lineSizeInput" min="1" value="1">
+</div>
+<div id="buttonContainer">
+    <button id="resetButton">Reset</button>
+</div>
+<div id="instructionText">Use your mouse to draw</div>
+<canvas id="myCanvas"></canvas>
+
+</body>
 </html>
