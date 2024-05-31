@@ -1,44 +1,29 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
     overflow: hidden;
 }
 
-canvas {
-    display: block;
-    border: 1px solid #000;
+#basicvideo {
+	width: 60vw;
+    max-width: 600px;
+	margin: auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
 }
 
-#colorPickerTab, #lineSizeTab, #buttonContainer {
-    position: fixed;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#colorPickerTab {
-    top: 20px;
-    left: 20px;
-}
-
-#lineSizeTab {
-    top: 20px;
-    right: 150px;
-}
-
-#buttonContainer {
-    top: 20px;
-    right: 20px;
-}
-
-#lineSizeInput, #resetButton {
-    margin-right: 10px;
-}
-
-#instructionText {
+#video, canvas {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
 }

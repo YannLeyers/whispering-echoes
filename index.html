@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <link href="styles/reset.css" type="text/css" rel="stylesheet">
     <link href="styles/styles.css" type="text/css" rel="stylesheet">
-
+    <script defer src="api/face-api.js"></script>
     <script defer src="scripts/script.js"></script>
 
-  </head>
-  <body>
+</head>
 
-<div id="colorPickerTab">
-    <label for="colorPicker">Select color:</label>
-    <input type="color" id="colorPicker" value="#000000">
-</div>
-<div id="lineSizeTab">
-    <label for="lineSizeInput">Line size:</label>
-    <input type="number" id="lineSizeInput" min="1" value="1">
-</div>
-<div id="buttonContainer">
-    <button id="resetButton">Reset</button>
-</div>
-<div id="instructionText">Use your mouse to draw</div>
-<canvas id="myCanvas"></canvas>
+<body>
+
+    <div class="doubleScreen">
+        <video id="creativeVideoTwo" autoplay loop style="width: 2400px; height: 1000px;">
+            <source src="./videos/creativeCodingVisual.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>    
+
+        <div id="basicvideo">
+            <video id="video" autoplay></video>
+        </div>
+    </div>
 
 </body>
+
 </html>
