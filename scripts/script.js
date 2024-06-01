@@ -41,6 +41,8 @@ function initializeFaceApi(video) {
     let soundPlaying = false;
     let audio = new Audio('./sounds/whispersTwo.mp3');
 
+    let fadeOutInterval;
+
     setInterval(async () => {
         const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
             .withFaceLandmarks()
@@ -57,12 +59,23 @@ function initializeFaceApi(video) {
                 audio.play();
                 soundPlaying = true;
             }
+            clearInterval(fadeOutInterval); // Clear any ongoing fade out
+            fadeOutInterval = setInterval(() => {
+                let currentOpacity = parseFloat(video.style.opacity);
+                if (currentOpacity > 0) {
+                    video.style.opacity = (currentOpacity - 0.1).toString();
+                } else {
+                    clearInterval(fadeOutInterval); // Stop fading out once opacity reaches 0
+                }
+            }, 500); // Adjust the fading speed as needed
         } else {
             if (soundPlaying) {
                 audio.pause();
                 audio.currentTime = 0;
                 soundPlaying = false;
             }
+            clearInterval(fadeOutInterval); // Clear any ongoing fade out
+            video.style.opacity = "1"; // Reset video opacity
         }
     }, 100);
 }
