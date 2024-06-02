@@ -38,8 +38,8 @@ function initializeFaceApi(video) {
     const displaySize = { width: video.videoWidth, height: video.videoHeight };
     faceapi.matchDimensions(canvas, displaySize);
 
-    let soundPlaying = false;
     let audio = new Audio('./sounds/whispersTwo.mp3');
+    let isPlaying = false;
 
     setInterval(async () => {
         const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
@@ -51,18 +51,14 @@ function initializeFaceApi(video) {
         faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
         faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
 
-        if (resizedDetections.length === 0) {
-            if (!soundPlaying) {
-                audio.loop = true;
-                audio.play();
-                soundPlaying = true;
-            }
-        } else {
-            if (soundPlaying) {
-                audio.pause();
-                audio.currentTime = 0;
-                soundPlaying = false;
-            }
+        if (resizedDetections.length === 0 && !isPlaying) {
+            audio.loop = true;
+            audio.play();
+            isPlaying = true;
+        } else if (resizedDetections.length > 0 && isPlaying) {
+            audio.pause();
+            audio.currentTime = 0;
+            isPlaying = false;
         }
     }, 100);
 }
