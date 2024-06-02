@@ -10,16 +10,17 @@ body {
 }
 
 #basicvideo {
-	width: 60vw;
+    width: 60vw;
     max-width: 600px;
-	margin: auto;
+    margin: auto;
     border: 2px solid #333;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
 }
 
-#video, canvas {
+#video,
+canvas {
     position: absolute;
     top: 0;
     left: 0;
