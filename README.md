@@ -1,11 +1,15 @@
-﻿# whispering-echoes
-Do you ever get the feeling that people are talking and whispering about you, or that they're laughing at you behind your back? Despite being sure that someone's talking about you, as soon as you turn your back, you'd see that nobody is doing any of those things.
+﻿# whispering Echoes
 
-For this installation, you walk in a dark room and the only thing present is a screen and yourself. You stare at the screen hoping for something to happen, but there's nothing. I wonde what would happen if you were to turn your back...
+ Do you ever get the feeling that people are talking and whispering about you, or that they're laughing at you behind your back? Despite being sure that someone's talking about you, as soon as you turn your back, you'd see that nobody is doing any of those things.
+
+For this installation, you walk in a dark room and the only thing present is a screen and yourself. You stare at the screen hoping for something to happen, but there's nothing. I wonder what would happen if you were to turn your back...
 
 This was coded using HTML, CSS, Javascript and a face detection API, which was all made in a Vite project. The visual was made in Adobe Photoshop & After Effects.
 
 **By Yann Leyers**
+ 
+![whispering echoes trailer (0;01;28;12)](https://github.com/YannLeyers/whispering-echoes/assets/159014875/1ec66caa-dc33-433b-a0fa-8c5038e28e2a)
+### Check out the [trailer](https://youtu.be/SQ-1d-22YBs).
 
 ## Equipment
 - A screen / monitor
@@ -13,7 +17,7 @@ This was coded using HTML, CSS, Javascript and a face detection API, which was a
 - (An in-built) webcam
 
 ## Set up
-### Step 1: Preperations
+### Step 1: Preparations
 Before we worry about how to set the project up, it's important to have the necessities ready. As previously stated, you'll need a screen to project the installation on, but something tells me you most likely already have one. Make sure that your device or screen has speakers that can play sound, because the audio plays an important role in this installation. 
 
 Most laptops should have an in-built camera but if yours don't or if you are testing this out on a monitor, you'll need a webcam that you can plug into your device/screen.
@@ -32,7 +36,7 @@ npm start
 
 # Code Explanation
 ## Face API
-The "face-api.js" library is the most important part of the code. This piece of code utilises a method to load multiple models from the library
+The "face-api.js" library is the most important part of the code. This piece of code utilizes a method to load multiple models from the library
 ```ruby
 Promise.all([
     faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
@@ -50,6 +54,9 @@ The third URL loads the the Face Recognition model, which is used to recognize a
 The fourth URL loads the Face Expression model, which is used to detect facial expressions like happiness, sadness, anger, etc.
 
 In summary, this code is responsible for concurrently loading four different face detection and recognition models from a URL using the face-api.js library, and it handles any potential errors that may occur during the loading process by logging them to the console.
+
+### Here is how it looks like when the API works:
+<img width="1000" alt="creative-coding-api" src="https://github.com/YannLeyers/whispering-echoes/assets/159014875/fad0d8e9-2756-4f29-976e-99cd372ed43c">
 
 ## Video feed
 This next piece of code uses an API to gain access to the webcam and stream the video feed to a video element in the html file.
@@ -77,8 +84,6 @@ This retrieves the video element from the HTML document by its ID (video). `var 
 This starts playing the video stream in the video element. `video.play();`
 
 The piece of code that brings my installation together is this: `initializeFaceApi(video);`. This function initializes the face-api.js library to start processing the video stream for a face detection. This means that if the video feed and the API library detect a face, it'll show up on the screen, as shown below. With this I can begin working on the last part.
-
-*adding image later*
 
 In summary, this code attempts to access the user's webcam, stream the video feed to an HTML video element, and initialize face-api.js for further processing once the video starts playing. If there is an error in accessing the webcam, it logs the error to the console.
 
@@ -174,22 +179,28 @@ Inside this interval, If no faces are detected `(resizedDetections.length === 0)
 In summary, this code initializes the face-api.js library for the video element to detect faces, landmarks, and expressions, and dynamically draws these detections on an overlaid canvas. Additionally, it plays a sound when no faces are detected and stops the sound when faces are detected.
 
 # Other
-## Pitfalls
 
 ## Master Files
 Like I already mentioned, the visual was made in Adobe Photoshop and After Effects. I could've went for a still image but I thought that having a haunting visual that's interactive would have more of an effect. I spent some time looking for the right visual for the installation, but none really felt right. Some of those styles included a pixel stye or just flat human shapes that focus on the facial expressions. After some advice from my teacher, we found the perfect style.
 
 I looked for some inspiration about the style we agreed on and then got to work in photoshop. This is the first version I made. This visual was used during the open showcase at AP
 
+### First Version
 ![creative-coding-visual-one](https://github.com/YannLeyers/whispering-echoes/assets/159014875/5d6f5042-3318-4d65-a50b-e84469eb9012)
 
-### Breakdown
+**Breakdown**
 Every person is made out of a body, two arms and two hands. It was important to split the body parts because I knew that I wanted to animate them later. I started by drawing the head and body first. I wanted something that looked human but still a bit unrealistic. The flat drawings didn't look great so I had to use some effects. I used "Field Blur" to get that blurry effect and then added grain to it.
 
 ![creative-coding-visual-person-layers](https://github.com/YannLeyers/whispering-echoes/assets/159014875/0c378737-9103-47ca-a00d-8feacfa768b6)
 
-This version did what I wanted it to do during the showcase, creep people out, but I needed something more interactive. The only thing that really happens when you turn your back to the camera is that a sound plays, but nothing happens with the visuals. I went back to my old idea's found something new. I originally wanted to have people on the screen that would stare at you, talk and laugh at you, so I revisited that idea and created this
+This version did what I wanted it to do during the showcase, creep people out, but I needed something more interactive. The only thing that really happens when you turn your back to the camera is that a sound plays, but nothing happens with the visuals. I went back to my old idea's found something new. I originally wanted to have people on the screen that would stare at you, talk and laugh at you, so I revisited that idea and created something new.
+
+### Final Version
+
+The point of this version is that when you're looking at the camera the people on the screen won't be looking back. It's only when you turn around that they'll look back, show their face and start whispering about you. I think that this version could have a bigger impact on people. Me going through all that work to make an extra visual that the user can't even see, since they will be faced away from the screen when the second visual appears, is the entire point of my concept. When you're in public and get anxious about the fact that there might be someone whispering about you, you won't know if there's actually someone doing what you think they're doing, because the second you look around to want to confront that person, everything will look normal.
 
 <img width="990" alt="creative-coding-visual-two" src="https://github.com/YannLeyers/whispering-echoes/assets/159014875/b7a01a0e-926d-461b-943f-467c21315d2c">
 
-The point of this version is that when you're looking at the camera the people on the screen won't be looking back. It's only when you turn around that they'll look back, show their face and start whispering about you. I think that this version could have a bigger impact on people. Me going through all that work to make an extra visual that the user can't even see, since they will be faced away from the screen when the second visual appears, is the entire point of my concept. When you're in public and get anxious about the fact that there might be someone whispering about you, you won't know if there's actually someone doing what you think they're doing, because the second you look around to confront that person, they will already have stopped and you won't know where it came from.
+**This is how it looks like in video format. It's a few people who keep walking past you on a loop**
+
+![frame creative coding visual (0;00;03;02)](https://github.com/YannLeyers/whispering-echoes/assets/159014875/8921406f-92a1-4bb9-836f-7acfd06a8632)
